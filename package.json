@@ -1,10 +1,35 @@
 {
+  "license": "UNLICENSED",
   "scripts": {
-    "compile": "tsc --watch",
-    "start": "node --enable-source-maps .out/index"
+    "compile": "yarn run tsc --watch",
+    "start": "node --enable-source-maps .out/index",
+    "test": "yarn run jest --passWithNoTests"
   },
   "devDependencies": {
+    "@babel/core": "^7.10.2",
+    "@babel/preset-env": "^7.10.2",
+    "@babel/preset-typescript": "^7.10.1",
+    "@types/jest": "^26.0.0",
     "@types/node": "^14.0.13",
+    "babel-jest": "^26.0.1",
     "typescript": "^3.9.5"
+  },
+  "jest": {
+    "testMatch": [
+      "**/src/**/__test__/*.test.ts"
+    ]
+  },
+  "babel": {
+    "presets": [
+      [
+        "@babel/preset-env",
+        {
+          "targets": {
+            "node": "current"
+          }
+        }
+      ],
+      "@babel/preset-typescript"
+    ]
   }
 }
